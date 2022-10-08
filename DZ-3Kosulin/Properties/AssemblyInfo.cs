@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DZ2-Kosulin")]
+[assembly: AssemblyTitle("DZ-3Kosulin")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DZ2-Kosulin")]
+[assembly: AssemblyProduct("DZ-3Kosulin")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c5cb0600-2670-4ed8-a07d-e6e886e487a8")]
+[assembly: Guid("a3970c0c-9a14-4a35-aee8-57fdf10f59b4")]
 
 // Version information for an assembly consists of the following four values:
 //

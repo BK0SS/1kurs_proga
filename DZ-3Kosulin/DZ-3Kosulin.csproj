@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5CB0600-2670-4ED8-A07D-E6E886E487A8}</ProjectGuid>
+    <ProjectGuid>{A3970C0C-9A14-4A35-AEE8-57FDF10F59B4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DZ2_Kosulin</RootNamespace>
-    <AssemblyName>DZ2-Kosulin</AssemblyName>
+    <RootNamespace>DZ_3Kosulin</RootNamespace>
+    <AssemblyName>DZ-3Kosulin</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
