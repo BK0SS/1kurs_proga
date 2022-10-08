@@ -10,12 +10,10 @@ namespace DZ_3Kosulin
     {
         static void Main(string[] args)
         {
-            string x = Console.ReadLine();
-           char[] a = x.ToCharArray();
-            char[] b = a.ToArray();
-            Console.Write(b[0]) ;
-            Console.Write(b[2]);
-            Console.Write(b[1]);
+       
+            float x= float.Parse(Console.ReadLine());
+            Console.WriteLine("Y =" + 1+Math.Sqrt(Math.Pow(x,2)-1/Math.Pow(x,2)+1));
+
             while (true) ;
 
             
