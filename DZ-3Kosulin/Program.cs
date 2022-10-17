@@ -16,7 +16,7 @@ namespace DZ_3Kosulin
             Console.Write(b[0]) ;
             Console.Write(b[2]);
             Console.Write(b[1]);
-            while (true) ;
+            Console.ReadKey();
 
             
         }
