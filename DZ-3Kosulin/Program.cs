@@ -14,7 +14,7 @@ namespace DZ_3Kosulin
             float x= float.Parse(Console.ReadLine());
             Console.WriteLine("Y =" + 1+Math.Sqrt(Math.Pow(x,2)-1/Math.Pow(x,2)+1));
 
-            while (true) ;
+            Console.ReadKey();
 
             
         }
