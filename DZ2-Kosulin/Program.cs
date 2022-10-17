@@ -15,7 +15,7 @@ namespace DZ2_Kosulin
             double dlina_3 = double.Parse(Console.ReadLine());
             //Это медиана для 3 стороны то есть для dlina_3
             Console.WriteLine(Math.Sqrt(2*Math.Pow(dlina_1,2)+ 2*Math.Pow(dlina_2,2)+Math.Pow(dlina_3,2) /4));
-            while (true) ;
+            Console.ReadKey() ;
         }
     }
 }
