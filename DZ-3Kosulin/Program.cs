@@ -10,15 +10,9 @@ namespace DZ_3Kosulin
     {
         static void Main(string[] args)
         {
-            string x = Console.ReadLine();
-           char[] a = x.ToCharArray();
-            char[] b = a.ToArray();
-            Console.Write(b[0]) ;
-            Console.Write(b[2]);
-            Console.Write(b[1]);
+            int a = int.Parse(Console.ReadLine());
+            Console.Write(a / 100 +""+ a % 10 + ""+ a / 10 % 10);
             Console.ReadKey();
-
-            
         }
     }
 }
