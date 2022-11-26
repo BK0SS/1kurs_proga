@@ -11,8 +11,9 @@ namespace DZ_3Kosulin
         static void Main(string[] args)
         {
        
-            float x= float.Parse(Console.ReadLine());
-            float y = 1+Math.Sqrt(Math.Pow(x,2)-1/Math.Pow(x,2)+1);
+          
+            float x = float.Parse(Console.ReadLine());
+            float y = (float)(1 + (Math.Sqrt(Math.Pow(x, 2) - 1) /Math.Sqrt(Math.Pow(x, 2) + 1)));
             Console.WriteLine("Y = " + y);
 
             Console.ReadKey();
