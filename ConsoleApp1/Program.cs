@@ -11,9 +11,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             string a = "клавиатура";
-            string viara = a[3].ToString() + a[4].ToString() + a[2].ToString() + a[8].ToString() + a[2].ToString();
+            string tiara = a[6].ToString() + a[4].ToString() + a[2].ToString() + a[8].ToString() + a[2].ToString();
             string ruka = a[8].ToString() + a[7].ToString() + a[0].ToString() + a[2].ToString();
-            Console.WriteLine(viara + " " + ruka);
+            Console.WriteLine(tiara + " " + ruka);
             Console.ReadKey();
         }
     }
