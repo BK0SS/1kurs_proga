@@ -8,14 +8,15 @@ namespace zadanie5
 {
     internal class Program
     {
-        static float Untic_x(float x, float a, float b) 
+         static float Untic_x(float a, float b)
         {
-            return x = (float)Math.Pow((float)Math.E, -Math.Sqrt(a + Math.Pow(b, (float)Math.PI)));
+            return (float)Math.Pow((float)Math.E, -1*Math.Sqrt(a + Math.Pow(b, 2)));
         }
         static void Main(string[] args)
         {
-            float y = 3;
-            Console.WriteLine( Untic_x(y,2,3)+ Untic_x(y,3,5)+ Untic_x(y,5,7));
+            float y  = Untic_x(2, 3)+Untic_x(3,5)*Untic_x(2,7);
+            Console.WriteLine(y);
+
             Console.ReadKey();
         }
     }
