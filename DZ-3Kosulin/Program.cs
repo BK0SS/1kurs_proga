@@ -11,7 +11,8 @@ namespace DZ_3Kosulin
         static void Main(string[] args)
         {
             int a = int.Parse(Console.ReadLine());
-            Console.Write(a / 100 +""+ a % 10 + ""+ a / 10 % 10);
+            int number = (a / 100) * 100 + (a % 10) * 10 + a /10 % 10;
+            Console.Write(number);
             Console.ReadKey();
         }
     }
