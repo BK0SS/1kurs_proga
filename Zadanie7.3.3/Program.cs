@@ -10,7 +10,7 @@ namespace Zadanie7._3._3
     internal class Program
     {
 
-        //проверка позиций
+        //проверка коррекстности позиций
         public static void proverka_position(int x, int y)
         {
 
@@ -24,17 +24,31 @@ namespace Zadanie7._3._3
                 Console.WriteLine("Неправильная позиция");
 
             }
-       
+
         }
-        public static void igra()
+        //проверка следующего хода ладьи
+        static bool proverka_hoda_ladya(int first_pos, int first_posy,int second_pos, int second_posy, int ferz_x, int ferz_y)
         {
-            int white_x = int.Parse(Console.ReadLine());
-            int white_y = int.Parse(Console.ReadLine());
-            proverka_position((int)white_x, (int)white_y);
-            Console.WriteLine("Теперь позицию черного ферзя");
-            int black_x = int.Parse(Console.ReadLine());
-            int black_y = int.Parse(Console.ReadLine());
-            proverka_position((int)white_x, (int)white_y);
+            if (first_pos == second_pos||first_posy==second_posy)
+            {
+                Console.WriteLine("Ход возможен");
+                return false;
+            }
+            else if (second_pos==ferz_x&second_posy==ferz_y)
+            {
+                Console.WriteLine("на этом месте стоит другая фигура");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Ход невозможен");
+                return true;
+            }   
+        }
+        
+        //проверка сруба
+        public static void next_move_check(int white_x, int white_y,int black_x, int black_y)
+        {
             if (white_x == black_x & white_y == black_y)
             {
                 Console.WriteLine("Невозможно");
@@ -54,32 +68,79 @@ namespace Zadanie7._3._3
                 }
                 else if (Math.Abs(black_x - white_x) == Math.Abs(black_y - white_y))
                 {
-                    if (black_x != white_x & black_y != white_y)
-                    {
-                        Console.WriteLine("Черный ферзь может срубить белую ладью");
-                    }
+
+                    Console.WriteLine("Черный ферзь может срубить белую ладью");
                 }
                 else
                 {
                     Console.WriteLine("Никакой сруб не возможен");
                 }
             }
+        }
 
+        //перевод символов в числа
+        static int perevod(char pos)
+        {
+            switch (pos)
+            {
+                case 'A':
+                    return 1;
+                    break;
+
+                case 'B':
+                    return 2;
+                    break;
+
+                case 'C':
+                    return 3;
+                    break;
+
+                case 'D':
+                    return 4;
+                    break;
+
+                case 'E':
+                    return 5;
+                    break;
+
+                case 'F':
+                    return 6;
+                    break;
+
+                case 'G':
+                    return 7;
+                    break;
+
+                case 'H':
+                    return 8;
+                    break;
+                    default: return 0;  
+            }
         }
       
-   
-        static bool proverka()
-        {
-            return false;
-        }
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Щахматы\nВведите сначала позицию белой ладьи, а потом черного ферзя");
             
-            igra();
+        public static void igra()
+        {
+            int white_x = int.Parse(Console.ReadLine());
+            char white_y = char.Parse(Console.ReadLine());
+           
+            proverka_position((int)white_x, perevod(white_y));
 
-            Console.ReadKey();
+            Console.WriteLine("Теперь позицию черного ферзя");
+            int black_x = int.Parse(Console.ReadLine());
+            char black_y = char.Parse(Console.ReadLine());
+
+            proverka_position((int)black_x, perevod(black_y));
+
+            Console.WriteLine("Введите следующий ход белой ладьи");
+
+            int next_white_x = int.Parse(Console.ReadLine());
+            char next_white_y = char.Parse(Console.ReadLine());
+
+            proverka_hoda_ladya(white_x, perevod(white_y), next_white_x, perevod(next_white_y), black_x, perevod(black_y));
+            next_move_check((int)next_white_x,perevod(next_white_y),black_x,perevod(black_y));
 
         }
+
     }
 }
