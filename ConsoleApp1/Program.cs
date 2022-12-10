@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,22 +9,27 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        static int function(int n)
+        static double function()
         {
-            int x= (int) Math.Pow(n,2);
-
-            for (int i = 1; i <= n; i++)
+            double avg = 1;
+            double ans;
+            int i = 0;
+            do
             {
-                x += (int)Math.Pow(n + i, 2);
+                ans = double.Parse(Console.ReadLine());
+                avg *= ans;
+                Console.WriteLine(avg);
             }
-            x += (int)Math.Pow(2 * n, 2);
-            return x;
+            while (ans != 0);
+          
+            return Math.Pow(avg, 1 / (double)i); ;
         }
         static void Main(string[] args)
         {
-            int y = function(int.Parse(Console.ReadLine()));
-            Console.WriteLine(y);
-            Console.ReadKey();
+          Console.WriteLine(function());
+       
+            
+            Console.ReadKey();  
         }
     }
 }
