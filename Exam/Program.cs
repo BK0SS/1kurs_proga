@@ -10,45 +10,76 @@ namespace Exam
     {
         static void Main(string[] args)
         {
-            int number = int.Parse(Console.ReadLine());
-            IsSimple(number);
-            int b;
-            string multiply = $"Разложение числа {number} =";
-
-            for (b = 2; number > 1; b++)
-                if (number % b == 0)
+            for (int number = 2; ; number++)
+            {
+                
+                if (number%2 != 0 & IsSostavnoe(number))
                 {
-                    int x = 0;
-                    while (number % b == 0)
+                    int count = 0;
+                    for (int i = 0; i < number; i++)
                     {
-                        number/= b;
-                        x++;
+                        if (IsSimple(i))
+                        {
+                            for(int x = 1;x <= 9; x++)
+                            {
+                                if(i + 2*(x*x) == number)
+                                {
+                                    count++;
+                                }
+                                
+                            }
+                        }
                     }
-                    multiply += $" {b} * {x};";
-                }
+                    if (count == 0)
+                    {
+                        Console.WriteLine($"{number} это наименьшее число, которое ломает систему");
+                        break;
+                    }
 
-            Console.WriteLine($" = {multiply}");
+                }
+                else { continue; }   
+            }
             Console.ReadKey();
+           
         }
-        static int IsSimple(int number)
+
+        //метод который находит простое число
+        static bool IsSimple(int number)
         {
+            bool b = false;
             int count = 0;
-            for(int i = 1; i <= number; i++)
+            for (int i = 1; i <= number; i++)
             {
                 if (number % i == 0)
                 {
                     count++;
                 }
             }
-            if(count == 2) 
-            { 
-                Console.WriteLine($"{number} простое"); 
-            }
-            else
+            if (count == 2)
             {
-                Console.WriteLine($"{number} не простое");
+                b = true;
+            }         
+            return b;
+        }
+
+        //метод который находит составное число
+        static bool IsSostavnoe(int number)
+        {
+            bool b = false;
+            int count = 0;
+            for (int i = 1; i <= number; i++)
+            {
+                if (number % i == 0)
+                {
+                    count++;
+                }
             }
-            return 0;
+            if (count > 2)
+            {
+                b = true;
+            }
+
+            return b;
         }
     }
 }
