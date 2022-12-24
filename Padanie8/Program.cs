@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exam
+namespace Padanie8
 {
     internal class Program
     {
