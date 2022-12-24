@@ -1,33 +1,34 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Padanie8
+namespace Exam
 {
     internal class Program
     {
-        public static void xfunc(double x)
+        static double Xfunc(double x)
         {
             if (x < -1)
             {
-                Console.WriteLine(1);
+                x = 1;
             }
             else if (x > 1)
             {
-                Console.WriteLine(-1);
+                x = -1;
             }
             else
             {
-                Console.WriteLine(-x);
+                x = -x;
             }
+            return x;
         }
         static void Main(string[] args)
         {
-            xfunc(1.2);
-            xfunc(-2);
-            xfunc(0.5);
+            double x = double.Parse(Console.ReadLine());
+            x = Xfunc(x);
+            Console.WriteLine(x);
             Console.ReadKey();
         }
     }
