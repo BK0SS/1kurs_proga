@@ -12,26 +12,29 @@ namespace Exam
         {
             int number = int.Parse(Console.ReadLine());
             IsSimple(number);
-            int b;
-            string multiply = $"Разложение числа {number} =";
-
-            for (b = 2; number > 1; b++)
-                if (number % b == 0)
+            for(int i = 2; i < number; i++)
+            {
+                if (IsSimple(i))
                 {
-                    int x = 0;
-                    while (number % b == 0)
+                    for (int j = 2; j < number; j++)
                     {
-                        number/= b;
-                        x++;
+                        if (IsSimple(j))
+                        {
+                            if (i + j == number)
+                            {
+                                Console.WriteLine($"{i} + {j} = {number}");
+                                break;
+                            }
+                        }
                     }
-                    multiply += $" {b} * {x};";
                 }
-
-            Console.WriteLine($" = {multiply}");
+            }
+           
             Console.ReadKey();
         }
-        static int IsSimple(int number)
+        static bool IsSimple(int number)
         {
+            bool b = false;
             int count = 0;
             for(int i = 1; i <= number; i++)
             {
@@ -41,14 +44,10 @@ namespace Exam
                 }
             }
             if(count == 2) 
-            { 
-                Console.WriteLine($"{number} простое"); 
-            }
-            else
             {
-                Console.WriteLine($"{number} не простое");
+                b = true;
             }
-            return 0;
+            return b;
         }
     }
 }
