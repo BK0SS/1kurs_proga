@@ -9,27 +9,34 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        static double function()
+        static double Function()
         {
             double avg = 1;
-            double ans;
-            int i = 0;
-            do
-            {
-                ans = double.Parse(Console.ReadLine());
-                avg *= ans;
-                Console.WriteLine(avg);
-            }
-            while (ans != 0);
           
-            return Math.Pow(avg, 1 / (double)i); ;
+            int i = 0;
+            while (true)
+            {
+                double ans = double.Parse(Console.ReadLine());
+                if (ans == 0)
+                {
+                    avg = Math.Pow(avg, 1 / (double)i); 
+                    Console.WriteLine($"Конец ввода.\nСреднее геометрическое = {avg}");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Продолжайте ввод");
+                    i++;
+                    avg *= ans;
+                }
+            }
+
+            return avg;
         }
         static void Main(string[] args)
         {
-          Console.WriteLine(function());
-       
-            
-            Console.ReadKey();  
+            Function();
+            Console.ReadKey();
         }
     }
 }
