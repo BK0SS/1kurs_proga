@@ -22,28 +22,17 @@ namespace ConsoleApp3
         {
             int n = int.Parse(Console.ReadLine());
             int m = int.Parse(Console.ReadLine());
-            for (int i = 0; i < 10; i++)
+            string output = "";
+         
+            for (int i = 0; i <= n * m; i++)
             {
- 
-              if (i < n*m)
-              {
-                Console.WriteLine($"Число {i} не привосходит число {n*m}");
-              }
-            
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                if (nod(i,n)==1)
+               if(nod(i,n) == 1 & nod(i, m) == 1)
                 {
-                    Console.WriteLine($"Число {i} взаимно простое с числом {n}");
+                    output += $"{i}; ";
                 }
-                if (nod(i, m) == 1)
-                {
-                    Console.WriteLine($"Число {i} взаимно простое с числом {m}");
-                }
-
             }
-            Console.ReadLine();
+            Console.WriteLine($"Эти числа взаимно простые с {n} И {m}:\n{output}");
+            Console.ReadKey();
         }
     }
 }
