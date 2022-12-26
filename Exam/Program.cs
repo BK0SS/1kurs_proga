@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,47 +9,28 @@ namespace Exam
 {
     internal class Program
     {
+
+
         static void Main(string[] args)
         {
-            int number = int.Parse(Console.ReadLine());
-            IsSimple(number);
-            int b;
-            string multiply = $"Разложение числа {number} =";
-
-            for (b = 2; number > 1; b++)
-                if (number % b == 0)
+            List<char> vowels = new List<char> {'а','о','ы','и','у','э','ё','я','е','ю'};
+            string sentance = Console.ReadLine().ToLower();
+            int allvowels = 0;
+            
+            for(int i = 0; i < vowels.Count; i++)
+            {
+                int vowelcount = 0;
+                if (sentance.Contains(vowels[i]))
                 {
-                    int x = 0;
-                    while (number % b == 0)
-                    {
-                        number/= b;
-                        x++;
-                    }
-                    multiply += $" {b} * {x};";
+                    vowelcount = sentance.Count(s => s.Equals(vowels[i]));
+                    Console.WriteLine($"Буква {vowels[i]} вчтречается {vowelcount} раз");
+                    allvowels++;
                 }
-
-            Console.WriteLine($" = {multiply}");
+            }
+            Console.WriteLine(allvowels+" общее количество гласных");
+           
+                
             Console.ReadKey();
-        }
-        static int IsSimple(int number)
-        {
-            int count = 0;
-            for(int i = 1; i <= number; i++)
-            {
-                if (number % i == 0)
-                {
-                    count++;
-                }
-            }
-            if(count == 2) 
-            { 
-                Console.WriteLine($"{number} простое"); 
-            }
-            else
-            {
-                Console.WriteLine($"{number} не простое");
-            }
-            return 0;
         }
     }
 }
