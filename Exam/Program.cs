@@ -7,48 +7,57 @@ using System.Threading.Tasks;
 namespace Exam
 {
     internal class Program
-    {
-        static void Main(string[] args)
-        {
-            int number = int.Parse(Console.ReadLine());
-            IsSimple(number);
-            int b;
-            string multiply = $"Разложение числа {number} =";
+    {      
+            static void Main(string[] args)
+            {
+                Console.WriteLine("Введите n степень");
+                int nsquere = int.Parse(Console.ReadLine());
 
-            for (b = 2; number > 1; b++)
-                if (number % b == 0)
+                for (int i = 10; i < 10000000; i++)
                 {
-                    int x = 0;
-                    while (number % b == 0)
+                    if (AreDigitsEqualNumber(i, nsquere))
                     {
-                        number/= b;
-                        x++;
+                        Console.WriteLine($"Число {i} равно сумме квадратов его чисел");
                     }
-                    multiply += $" {b} * {x};";
+                }
+                Console.ReadKey();
+            }
+
+            static bool AreDigitsEqualNumber(int number, int nSquere)
+            {
+                int originalnumber = number;
+
+                int sum_of_squeres = 0;
+
+                bool chek = false;
+
+                int[] temp = new int[number.ToString().Length];
+
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    temp[i] = number % 10;
+                    number /= 10;
+                }
+                Array.Reverse(temp);
+
+                foreach (int i in temp)
+                {
+                    sum_of_squeres += NSquere(i, nSquere);
+                }
+                if (sum_of_squeres == originalnumber)
+                {
+                    chek = true;
                 }
 
-            Console.WriteLine($" = {multiply}");
-            Console.ReadKey();
-        }
-        static int IsSimple(int number)
-        {
-            int count = 0;
-            for(int i = 1; i <= number; i++)
+                return chek;
+            }
+            static int NSquere(int number, int nSquere)
             {
-                if (number % i == 0)
-                {
-                    count++;
-                }
+                int temp = number;
+                for (int i = 1; i < nSquere; i++)
+                    number *= temp;
+
+                return number;
             }
-            if(count == 2) 
-            { 
-                Console.WriteLine($"{number} простое"); 
-            }
-            else
-            {
-                Console.WriteLine($"{number} не простое");
-            }
-            return 0;
-        }
-    }
+      }
 }
