@@ -16,39 +16,41 @@ namespace Exam
             string multiply = $"Разложение числа {number} =";
 
             for (b = 2; number > 1; b++)
-                if (number % b == 0)
+            {
+                if (IsSimple(b))
                 {
-                    int x = 0;
-                    while (number % b == 0)
+                    if (number % b == 0)
                     {
-                        number/= b;
-                        x++;
+                        int x = 0;
+                        while (number % b == 0)
+                        {
+                            number /= b;
+                            x++;
+                        }
+                        multiply += $" {b}^{x} *";
                     }
-                    multiply += $" {b} * {x};";
                 }
+            }
 
-            Console.WriteLine($" = {multiply}");
+            Console.WriteLine($"  {multiply}".Remove(multiply.Length));
             Console.ReadKey();
         }
-        static int IsSimple(int number)
+        static bool IsSimple(int number)
         {
+            bool b = false;
             int count = 0;
-            for(int i = 1; i <= number; i++)
+            for (int i = 1; i <= number; i++)
             {
                 if (number % i == 0)
                 {
                     count++;
                 }
             }
-            if(count == 2) 
-            { 
-                Console.WriteLine($"{number} простое"); 
-            }
-            else
+            if (count == 2)
             {
-                Console.WriteLine($"{number} не простое");
+                b = true;
             }
-            return 0;
+            return b;
         }
     }
 }
