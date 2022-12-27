@@ -10,32 +10,52 @@ namespace Exam
     {
         static void Main(string[] args)
         {
-            int number = int.Parse(Console.ReadLine());
-            IsSimple(number);
-            int b;
-            string multiply = $"Разложение числа {number} =";
-
-            for (b = 2; number > 1; b++)
+            for (int number = 2; ; number++)
             {
-                if (IsSimple(b))
+                if (number % 2 != 0 & IsSostavnoe(number))
                 {
-                    if (number % b == 0)
+                    bool b = false; 
+                    for (int p = 2; p <= number; p++)
                     {
-                        int x = 0;
-                        while (number % b == 0)
+                        if (IsSimple(p))
                         {
-                            number /= b;
-                            x++;
+
+                            for (int x = 1; x <= number; x++)
+                            {
+                                if (p + 2 * x * x == number)
+                                {
+                                    b = true;
+                                    break;
+                                }
+                            }
                         }
-                        multiply += $" {b}^{x} *";
+                    }
+                    if (b == false)
+                    {
+                        Console.WriteLine($"{number} это наименьшее число, которое ломает систему");
+                        break;
                     }
                 }
+                else { continue; }
             }
-
-            Console.WriteLine($"  {multiply}".Remove(multiply.Length));
             Console.ReadKey();
+
         }
+
+        //метод который находит простое число
         static bool IsSimple(int number)
+        {
+            for (int i = 2; i < number; i++)
+            {
+                if (number % i == 0)
+                    return false;
+            }
+            return true;
+        }
+    
+
+        //метод который находит составное число
+        static bool IsSostavnoe(int number)
         {
             bool b = false;
             int count = 0;
@@ -44,13 +64,14 @@ namespace Exam
                 if (number % i == 0)
                 {
                     count++;
+                    if (count == 3)
+                    {
+                        return true;
+                        break;
+                    }
                 }
             }
-            if (count == 2)
-            {
-                b = true;
-            }
-            return b;
+            return false;
         }
     }
 }
