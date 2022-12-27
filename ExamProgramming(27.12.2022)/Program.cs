@@ -14,26 +14,27 @@ namespace ExamProgramming_27._12._2022_
             {
                 if (number % 2 != 0 & IsSostavnoe(number))
                 {
-                    int count = 0;
-                    for (int p = 0; p <= number; p++)
+                    bool b = false; 
+                    for (int p = 2; p <= number; p++)
                     {
                         if (IsSimple(p))
                         {
-                            for (int x = 1; x <= 9; x++)
+
+                            for (int x = 1; x <= number; x++)
                             {
                                 if (p + 2 * x * x == number)
                                 {
-                                    count++;
+                                    b = true;
+                                    break;
                                 }
                             }
                         }
                     }
-                    if (count == 0)
+                    if (b == false)
                     {
                         Console.WriteLine($"{number} это наименьшее число, которое ломает систему");
                         break;
                     }
-
                 }
                 else { continue; }
             }
@@ -44,21 +45,14 @@ namespace ExamProgramming_27._12._2022_
         //метод который находит простое число
         static bool IsSimple(int number)
         {
-            bool b = false;
-            int count = 0;
-            for (int i = 1; i <= number; i++)
+            for (int i = 2; i < number; i++)
             {
                 if (number % i == 0)
-                {
-                    count++;
-                }
+                    return false;
             }
-            if (count == 2)
-            {
-                b = true;
-            }
-            return b;
+            return true;
         }
+    
 
         //метод который находит составное число
         static bool IsSostavnoe(int number)
@@ -70,14 +64,14 @@ namespace ExamProgramming_27._12._2022_
                 if (number % i == 0)
                 {
                     count++;
+                    if (count == 3)
+                    {
+                        return true;
+                        break;
+                    }
                 }
             }
-            if (count > 2)
-            {
-                b = true;
-            }
-
-            return b;
+            return false;
         }
     }
 }
