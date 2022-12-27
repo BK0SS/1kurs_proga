@@ -12,21 +12,19 @@ namespace ExamProgramming_27._12._2022_
         {
             for (int number = 2; ; number++)
             {
-
                 if (number % 2 != 0 & IsSostavnoe(number))
                 {
                     int count = 0;
-                    for (int i = 0; i < number; i++)
+                    for (int p = 0; p <= number; p++)
                     {
-                        if (IsSimple(i))
+                        if (IsSimple(p))
                         {
                             for (int x = 1; x <= 9; x++)
                             {
-                                if (i + 2 * (x * x) == number)
+                                if (p + 2 * x * x == number)
                                 {
                                     count++;
                                 }
-
                             }
                         }
                     }
