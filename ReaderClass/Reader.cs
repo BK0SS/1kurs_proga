@@ -27,16 +27,17 @@ namespace ReaderClass
             ReturnDate = DateTime.Parse(IssueDate).AddDays(Period);
             this.Pledge = Pledge;
         }
+        public Reader(string Name, string Surname)
+        {
+            this.Name = Name;
+            this.Surname = Surname;
+        }
 
-        public string GetInfo()
+        public virtual string GetInfo()
         {
 
             return $"{Name} {Surname}, читательский билет: {LTicketNumber}.Дата выдачи {IssueDate:d}, период выдачи:{Period}\n" +
                 $"Дата возврата:{ReturnDate:d}. Залог: {Pledge:c}";
-        }
-        public void PrintInfo()
-        {
-            Console.WriteLine(GetInfo());
         }
     }
 }

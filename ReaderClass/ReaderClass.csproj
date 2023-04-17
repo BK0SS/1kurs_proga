@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Visiter.cs" />
+    <Compile Include="TemporaryReader.cs" />
+    <Compile Include="ConnstatnReader.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
