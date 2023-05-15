@@ -27,9 +27,9 @@ namespace Librarytest
         public void Reader_GetInfo_Test()
         {
             string expectedInfo = "Mike Tyson";
-            expectedInfo += ", читательский билет: 123.";
-            expectedInfo += "Дата выдачи 10.02.1987, период выдачи:90\n";
-            expectedInfo += $"Дата возврата:11.05.1987. Залог: {TestReader.Pledge:c}";
+            expectedInfo += ", С‡РёС‚Р°С‚РµР»СЊСЃРєРёР№ Р±РёР»РµС‚: 123.";
+            expectedInfo += "Р”Р°С‚Р° РІС‹РґР°С‡Рё 10.02.1987, РїРµСЂРёРѕРґ РІС‹РґР°С‡Рё:90\n";
+            expectedInfo += $"Р”Р°С‚Р° РІРѕР·РІСЂР°С‚Р°:11.05.1987. Р—Р°Р»РѕРі: {TestReader.Pledge:c}";
             
 
             Assert.That(TestReader.GetInfo(), Is.EqualTo(expectedInfo));

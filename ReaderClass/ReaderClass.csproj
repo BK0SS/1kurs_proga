@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library.cs" />
+    <Compile Include="TicketSorter.cs" />
     <Compile Include="Visiter.cs" />
     <Compile Include="TemporaryReader.cs" />
     <Compile Include="ConnstatnReader.cs" />

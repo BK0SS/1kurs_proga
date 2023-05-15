@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReaderClass
 {
-    public class Reader
+    public class Reader : IComparable<Reader>
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -27,15 +23,27 @@ namespace ReaderClass
             ReturnDate = DateTime.Parse(IssueDate).AddDays(Period);
             this.Pledge = Pledge;
         }
+
         public Reader(string Name, string Surname)
         {
             this.Name = Name;
             this.Surname = Surname;
         }
 
+        public int CompareTo(Reader other)
+        {
+            if (this.Surname != other.Surname)
+            {
+                return this.Surname.CompareTo(other.Surname);
+            }
+            else
+            {
+                return this.Name.CompareTo(other.Name);
+            }
+        }
+
         public virtual string GetInfo()
         {
-
             return $"{Name} {Surname}, читательский билет: {LTicketNumber}.Дата выдачи {IssueDate:d}, период выдачи:{Period}\n" +
                 $"Дата возврата:{ReturnDate:d}. Залог: {Pledge:c}";
         }
